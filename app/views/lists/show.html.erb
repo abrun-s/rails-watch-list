@@ -1,0 +1,26 @@
+<div class="container mt-2">
+  <div class="row justify-content-around">
+    <div class="col-12 col-sm-8" data-controller="insert-bookmark">
+      <p>
+        <%= link_to 'Back to Lists', lists_path, class: 'btn-light opacity-50 text-decoration-none' %>
+      </p>
+      <div class="d-flex align-items-center">
+        <h1 class="m-0"><%= @list.name %></h1>
+        </p>
+      </div>
+         <h3>
+        Bookmarks
+        <%= link_to '+', new_list_bookmark_path(@list)  %>
+      </h3>
+      <ul>
+        <% if @list.bookmarks.any? %>
+          <% @list.bookmarks.each do |bookmark| %>
+            <li>
+              <%= bookmark.comment %>
+              <%= link_to 'x', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete bookmark?' } %>
+            </li>
+          <% end %>
+        <% else %>
+          <li>No bookmarks yet</li>
+        <% end %>
+      </ul>

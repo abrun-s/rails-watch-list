@@ -12,6 +12,11 @@
         Bookmarks
         <%= link_to '+', new_list_bookmark_path(@list)  %>
       </h3>
+      <% if @list.photo.attached? %>
+            <%= cl_image_tag @list.photo.key, widith: 400, height: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+          <% end %>
       <ul>
         <% if @list.bookmarks.any? %>
           <% @list.bookmarks.each do |bookmark| %>

@@ -1,0 +1,42 @@
+.add-movie-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.add-movie-button:hover {
+  background-color: #b20710;
+}
+
+.add-movie-button::before {
+  content: "+";
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  background: none;
+  border: 2px solid #e50914;
+  color: #e50914;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #e50914;
+  color: white;
+}

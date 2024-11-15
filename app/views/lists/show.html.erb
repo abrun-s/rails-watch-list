@@ -10,7 +10,7 @@
       </div>
          <h3>
         Bookmarks
-        <%= link_to '+', new_list_bookmark_path(@list)  %>
+        <%= link_to 'Add Movie', new_list_bookmark_path(@list)  %>
       </h3>
       <% if @list.photo.attached? %>
             <%= cl_image_tag @list.photo.key, widith: 400, height: 300, crop: :fill %>
@@ -22,7 +22,7 @@
           <% @list.bookmarks.each do |bookmark| %>
             <li>
               <%= bookmark.comment %>
-              <%= link_to 'x', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete review?' }  %>
+              <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete review?' }  %>
             </li>
           <% end %>
         <% else %>

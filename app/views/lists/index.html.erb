@@ -1,16 +1,24 @@
 
-<div class="cards">
-    <%= link_to "+", new_list_path, class: 'btn btn-yellow'  %>
-    <ul>
-    <% @lists.each do |list| %>
-     <li>
-        <% if list.photo.attached? %>
-            <%= cl_image_tag list.photo.key, widith: 400, height: 300, crop: :fill %>
-          <% else %>
-            <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
-          <% end %>
-        <%= link_to list.name, list_path(list) %>
-     </li>
-    <% end %>
-    </ul>
-</div>
+
+<body>
+    <div class="home">
+
+        <div class="movie-list">
+            <div class="cards">
+      <%= link_to "Add Movie", new_list_path, class: 'add-movie-button'  %>
+      <ul>
+      <% @lists.each do |list| %>
+        <li>
+          <% if list.photo.attached? %>
+              <%= cl_image_tag list.photo.key, widith: 400, height: 300, crop: :fill %>
+            <% else %>
+              <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+            <% end %>
+          <%= link_to list.name, list_path(list), class: "nav-button" %>
+        </li>
+      <% end %>
+      </ul>
+    </div> <!-- Movie list items go here -->
+
+    </div>
+</body>

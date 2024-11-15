@@ -17,7 +17,7 @@
           <% @list.bookmarks.each do |bookmark| %>
             <li>
               <%= bookmark.comment %>
-              <%= link_to 'x', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete bookmark?' } %>
+              <%= link_to 'x', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete review?' }  %>
             </li>
           <% end %>
         <% else %>

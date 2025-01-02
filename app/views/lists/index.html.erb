@@ -1,24 +1,26 @@
-
-
 <body>
-    <div class="home">
-
-        <div class="movie-list">
-            <div class="cards">
-      <%= link_to "Add Movie", new_list_path, class: 'add-movie-button'  %>
-      <ul>
-      <% @lists.each do |list| %>
-        <li>
-          <% if list.photo.attached? %>
-              <%= cl_image_tag list.photo.key, widith: 400, height: 300, crop: :fill %>
-            <% else %>
-              <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+  <div class="home">
+    <div class="movie-list">
+      <div class="cards">
+        <%= link_to "Add Watch List", new_list_path, class: 'add-movie-button'  %>
+        <div class= container>
+          <ul style="display: inline-flex; list-style: none; flex-wrap: wrap;">
+            <% @lists.each do |list| %>
+              <li style="padding: 8px; box-shadow: #7877777d 2PX 2PX 20PX 0PX;">
+                <div class= "image-container">
+                  <% if list.photo.attached? %>
+                    <%= cl_image_tag list.photo.key, widith: 400, height: 300, crop: :fill %>
+                  <% else %>
+                    <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+                  <% end %>
+                  <%= link_to list.name, list_path(list), class: "nav-button" %>
+                </div>
+              </li>
             <% end %>
-          <%= link_to list.name, list_path(list), class: "nav-button" %>
-        </li>
-      <% end %>
-      </ul>
-    </div> <!-- Movie list items go here -->
-
+          </ul>
+        </div>
+      </div>
+      <!-- Movie list items go here -->
     </div>
+  </div>
 </body>

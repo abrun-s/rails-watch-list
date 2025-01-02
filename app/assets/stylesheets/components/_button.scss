@@ -23,7 +23,7 @@
 }
 
 .nav-button {
-  padding: 10px 20px;
+  padding: 8px 12px;
   background: none;
   border: 2px solid #e50914;
   color: #e50914;
@@ -39,4 +39,21 @@
 .nav-button:hover {
   background-color: #e50914;
   color: white;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  display: block;
+}
+
+.image-container .nav-button {
+  position: absolute;
+  bottom: 6px;
+  left: 6%;
+
+
 }

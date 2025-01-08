@@ -13,7 +13,9 @@
                   <% else %>
                     <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
                   <% end %>
-                  <%= link_to list.name, list_path(list), class: "nav-button" %>
+                  <span style= "justify-content: between"><%= link_to list.name, list_path(list), class: "nav-button" %>
+                    <%= link_to "Delete", list_path(list), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Delete list?' }, class: "delete-button" %>
+                  </span>
                 </div>
               </li>
             <% end %>

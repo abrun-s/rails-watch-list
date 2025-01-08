@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 789251c0d24833597e0aba0d8a7ba6776bad812e
+  branch: main
+  specs:
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,8 +118,6 @@ GEM
     drb (2.2.1)
     erubi (1.13.0)
     execjs (2.10.0)
-    faker (3.5.1)
-      i18n (>= 1.8.11, < 2)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm-linux-gnu)
     ffi (1.17.0-arm64-darwin)
@@ -308,7 +314,7 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   debug
   dotenv-rails
-  faker
+  faker!
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder

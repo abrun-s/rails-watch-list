@@ -1,5 +1,5 @@
 <div class="container mt-2">
-  <div class="row justify-content-around">
+  <div class="navbar">
     <div class="col-sm-8" data-controller="insert-bookmark">
       <p>
         <%= link_to 'Back to Lists', lists_path, class: 'btn-light opacity-50 text-decoration-none' %>
@@ -12,22 +12,33 @@
       Bookmarks
       <%= link_to "Add to #{@list.name} list", new_list_bookmark_path(@list)  %>
     </h3>
-    <% if @list.photo.attached? %>
-      <%= cl_image_tag @list.photo.key, widith: 400, height: 300, crop: :fill %>
-    <% else %>
-      <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
-    <% end %>
-    <ul>
-      <% if @list.bookmarks.any? %>
-        <% @list.bookmarks.each do |bookmark| %>
-          <li>
-            <%= bookmark.comment %>
-            <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete review?' }  %>
-          </li>
-        <% end %>
-      <% else %>
-        <li>No bookmarks yet</li>
+  </div>
+  <% if @list.photo.attached? %>
+    <%= image_tag @list.photo, width: 400, height: 300, crop: :fill %>
+  <% elsif @list.bookmarks.any? %>
+    <%= image_tag @list.bookmarks.sample.movie.poster_url, width:500, height:750, crop: :fill %>
+  <% else %>
+    <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+  <% end %>
+  <div class="row justify-content-around">
+    <% if @list.bookmarks.any? %>
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="col-4">
+          <div class="movie-card">
+            <div class="container, p-2" style="background-color: rgb(211 211 211 / 56%);">
+              <span style="display:flex; justify-content: center;"><%= image_tag bookmark.movie.poster_url, width: 100, height: 150 %></span>
+            </div>
+            <h5 class="text-center"><%= bookmark.movie.title %></h5>
+            <div>
+              <p><%= bookmark.movie.overview %></p>
+              <p><%= bookmark.movie.rating%> / 10</p>
+            </div>
+            <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete review?' }, class: "delete-button", style: "display: flex; justify-content: center;" %>
+          </div>
+        </div>
       <% end %>
-    </ul>
+    <% else %>
+      <div class="col-12">No bookmarks yet</div>
+    <% end %>
   </div>
 </div>

@@ -1,8 +1,8 @@
 require_relative 'scraper'
 require 'yaml'
 
-# begin
-  movie_urls = movie_list()
+begin
+  movie_urls = movie_list
   movies = movie_urls.map do |url|
     scrape_movie(url)
   end
@@ -15,4 +15,4 @@ require 'yaml'
   # puts "movies.yml file created"
 # rescue StandardError => e
   # puts "Error: #{e.message}"
-# end
+end

@@ -1,18 +1,13 @@
+<div class="navbar">
+  <p>
+    <%= link_to 'Back to Lists', lists_path, class: 'btn-light opacity-50 text-decoration-none' %>
+  </p>
+  <h1 class="h1"><%= @list.name %></h1>
+  <h1>
+    <%= link_to "Add to #{@list.name} list", new_list_bookmark_path(@list), class: 'btn-danger text-decoration-none' %>
+  </h1>
+</div>
 <div class="container mt-2">
-  <div class="navbar">
-    <div class="col-sm-8" data-controller="insert-bookmark">
-      <p>
-        <%= link_to 'Back to Lists', lists_path, class: 'btn-light opacity-50 text-decoration-none' %>
-      </p>
-      <div class="d-flex align-items-center">
-        <h1 class="m-0"><%= @list.name %></h1>
-      </div>
-    </div>
-    <h3>
-      Bookmarks
-      <%= link_to "Add to #{@list.name} list", new_list_bookmark_path(@list)  %>
-    </h3>
-  </div>
   <% if @list.photo.attached? %>
     <%= image_tag @list.photo, width: 400, height: 300, crop: :fill %>
   <% elsif @list.bookmarks.any? %>

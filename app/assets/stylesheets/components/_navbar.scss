@@ -11,10 +11,10 @@
   width: 40px;
 }
 .navbar {
-  background-color: #1f1f1f;
-  padding: 15px 30px;
+  background-color: #e4b75bc9;
+  padding: 8px 12px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -40,4 +40,10 @@
 
 .navbar ul li a:hover {
   color: #e50914;
+}
+
+.navbar text {
+  color: #f5f5f5;
+  font-size: 18px;
+  margin: 0;
 }

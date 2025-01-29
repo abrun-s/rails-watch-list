@@ -1,0 +1,32 @@
+.scrolling-banner {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.banner-item {
+  flex-shrink: 0;
+  width: 200px; /* Set the width of each image */
+  margin: 0 10px; /* Add spacing between images */
+}
+
+.banner-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px; /* Optional styling for rounded corners */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

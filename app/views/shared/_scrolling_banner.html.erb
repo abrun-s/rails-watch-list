@@ -1,0 +1,19 @@
+<% if @list.present? && @list.bookmarks.any? %>
+  <div class="scrolling-banner">
+    <div class="banner-track">
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="banner-item">
+          <%= image_tag bookmark.movie.poster_url, alt: "Banner Image" %>
+        </div>
+      <% end %>
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="banner-item">
+          <%= image_tag bookmark.movie.poster_url, alt: "Banner Image" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p>No bookmarks available to display</p>
+<% end %>
+<style></style>

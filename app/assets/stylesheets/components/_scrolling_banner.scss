@@ -7,13 +7,13 @@
 .banner-track {
   display: flex;
   width: max-content;
-  animation: scroll 20s linear infinite;
+  animation: scroll linear infinite;
 }
 
 .banner-item {
   flex-shrink: 0;
   width: 200px; /* Set the width of each image */
-  margin: 0 10px; /* Add spacing between images */
+  margin: 0 1px; /* Add spacing between images */
 }
 
 .banner-item img {
@@ -27,6 +27,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }

@@ -1,50 +1,48 @@
-<% if Movie.any? %>
-  <% banner_items = Movie.all %>
-  <!-- Adjust multiplier for speed -->
-  <% animation_duration = banner_items.size * 2 %>
-  <div class="scrolling-banner">
-    <%# Loop through each movie and create a banner item %>
-    <div class="banner-track" style="animation-duration: <%= animation_duration %>s;">
-      <% banner_items.each do |movie| %>
-        <div class="banner-item">
-          <%= image_tag movie.poster_url, alt: movie.title, class: "Banner Image" %>
-        </div>
-      <% end %>
-      <!-- Duplicate items for seamless scrolling -->
-      <% banner_items.each do |movie| %>
-        <div class="banner-item">
-          <%= image_tag movie.poster_url, alt: movie.title, class: "Banner Image" %>
-        </div>
-      <% end %>
+<div class="scrolling-banner-container" >
+  <% if Movie.any? %>
+    <% banner_items = Movie.all %>
+    <!-- Adjust multiplier for speed -->
+    <% animation_duration = banner_items.size * 2 %>
+    <div class="scrolling-banner">
+      <%# Loop through each movie and create a banner item %>
+      <div class="banner-track" style="animation-duration: <%= animation_duration %>s;">
+        <% banner_items.each do |movie| %>
+          <div class="banner-item">
+            <%= image_tag movie.poster_url, alt: movie.title, class: "Banner Image" %>
+          </div>
+        <% end %>
+        <!-- Duplicate items for seamless scrolling -->
+        <% banner_items.each do |movie| %>
+          <div class="banner-item">
+            <%= image_tag movie.poster_url, alt: movie.title, class: "Banner Image" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% else %>
-  <p>No Movies available to display</p>
-<% end %>
+  <% else %>
+    <p>No Movies available to display</p>
+  <% end %>
+</div>
 <script>
   // Store the start time in local storage
   if (!localStorage.getItem('carouselStartTime')) {
-    localStorage.setItem('carouselStartTime', Date.now());
+  localStorage.setItem('carouselStartTime', Date.now());
   }
-
   // Retrieve the stored start time
   const startTime = localStorage.getItem('carouselStartTime');
   const now = Date.now();
   const elapsedTimeInSeconds = (now - carouselStartTime) / 1000;
-
   // animationDuration: total time for one full loop cycle (should match your computed value)
   const animationDuration = <%= animation_duration %>;
-
   // Calculate the current offset within the animation cycle
   // The modulo ensures the offset loops after each full cycle.
   const offset = elapsedTimeInSeconds % animationDuration;
-
   // Set a negative animation delay so the carousel appears to resume in the middle
   // Assuming your carousel container has an ID of "banner-track"
   document.addEventListener("DOMContentLoaded", function() {
-    const bannerTrack = document.querySelector('.banner-track');
-    if (bannerTrack) {
-      bannerTrack.style.animationDelay = `-${offset}s`;
-    }
+  const bannerTrack = document.querySelector('.banner-track');
+  if (bannerTrack) {
+  bannerTrack.style.animationDelay = `-${offset}s`;
+  }
   });
 </script>
